@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="roadSurfaceCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="roadSurfaceCell" rowHeight="50" id="KGk-i7-Jjw" customClass="roadsurfaceTableViewCell" customModule="Skateboarding" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wP-6L-lH5">
+                        <rect key="frame" x="183" y="5" width="42" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="ORM-u6-C1A"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="road" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-aM-ozR">
+                        <rect key="frame" x="26" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="4Ze-IW-kdQ"/>
+                            <constraint firstAttribute="width" constant="25" id="D0G-b9-ZyH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|||" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-xs-LBB">
+                        <rect key="frame" x="152" y="5" width="16" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="iJT-ZF-YxQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路面の状況 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-MK-jZQ">
+                        <rect key="frame" x="56" y="5" width="92" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="lpv-7P-tXu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6wg-xs-LBB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="5GT-Kn-kfD"/>
+                    <constraint firstItem="6wg-xs-LBB" firstAttribute="centerY" secondItem="8uz-aM-ozR" secondAttribute="centerY" id="J3e-OX-9Y6"/>
+                    <constraint firstItem="0wP-6L-lH5" firstAttribute="leading" secondItem="6wg-xs-LBB" secondAttribute="trailing" constant="15" id="MZn-g2-HA6"/>
+                    <constraint firstItem="phg-MK-jZQ" firstAttribute="leading" secondItem="8uz-aM-ozR" secondAttribute="trailing" constant="5" id="RWn-pM-dGh"/>
+                    <constraint firstItem="6wg-xs-LBB" firstAttribute="centerY" secondItem="phg-MK-jZQ" secondAttribute="centerY" id="duT-Vq-ST6"/>
+                    <constraint firstItem="0wP-6L-lH5" firstAttribute="centerY" secondItem="6wg-xs-LBB" secondAttribute="centerY" id="f6u-tD-jZr"/>
+                    <constraint firstItem="6wg-xs-LBB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="mmZ-ca-bJH"/>
+                    <constraint firstItem="8uz-aM-ozR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="s5h-QT-60f"/>
+                    <constraint firstAttribute="bottom" secondItem="6wg-xs-LBB" secondAttribute="bottom" constant="5" id="wyL-6Z-os9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="roadSurfaceLabel" destination="0wP-6L-lH5" id="CDg-zZ-Rfs"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="57.589285714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="road" width="512" height="512"/>
+    </resources>
+</document>

@@ -1,0 +1,4 @@
+Pods/*
+Skateboarding.xcworkspace
+GoogleService-Info.plist
+**/AppDelegate.swift
