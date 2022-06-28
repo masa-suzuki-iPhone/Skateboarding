@@ -43,36 +43,36 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //tabbarを復活
         tabBarController?.tabBar.isHidden = false
         
-        if Auth.auth().currentUser != nil {
-            // ログイン済み
-            if listener == nil {
-                // listener未登録なら、登録してスナップショットを受信する
-                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
-                    if let error = error {
-                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-                        return
-                    }
-                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-                    self.postArray = querySnapshot!.documents.map { document in
-                        print("DEBUG_PRINT: document取得 \(document.documentID)")
-                        let postData = PostData(document: document)
-                        return postData
-                    }
-                    // TableViewの表示を更新する
-                    self.tableView.reloadData()
-                }
-            }
-        } else {
-            // ログイン未(またはログアウト済み)
-            if listener != nil {
-                // listener登録済みなら削除してpostArrayをクリアする
-                listener.remove()
-                listener = nil
-                postArray = []
-                tableView.reloadData()
-            }
-        }
+//        if Auth.auth().currentUser != nil {
+//            // ログイン済み
+//            if listener == nil {
+//                // listener未登録なら、登録してスナップショットを受信する
+//                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
+//                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+//                    if let error = error {
+//                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+//                        return
+//                    }
+//                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+//                    self.postArray = querySnapshot!.documents.map { document in
+//                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+//                        let postData = PostData(document: document)
+//                        return postData
+//                    }
+//                    // TableViewの表示を更新する
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        } else {
+//            // ログイン未(またはログアウト済み)
+//            if listener != nil {
+//                // listener登録済みなら削除してpostArrayをクリアする
+//                listener.remove()
+//                listener = nil
+//                postArray = []
+//                tableView.reloadData()
+//            }
+//        }
     
     }
     
