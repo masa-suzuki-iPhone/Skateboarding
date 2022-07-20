@@ -45,6 +45,8 @@
 		6DD1C2B325CD902C00D9EB52 /* CommentLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD1C2B125CD902C00D9EB52 /* CommentLabelTableViewCell.swift */; };
 		6DD1C2B425CD902C00D9EB52 /* CommentLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD1C2B225CD902C00D9EB52 /* CommentLabelTableViewCell.xib */; };
 		6DF458B125D4079E009C17D4 /* PickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF458B025D4079E009C17D4 /* PickLocationViewController.swift */; };
+		E2DE1887286B023900189AAD /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DE1886286B023900189AAD /* SettingViewController.storyboard */; };
+		E2DE1889286B11A400189AAD /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DE1888286B11A400189AAD /* HomeViewController.storyboard */; };
 		E80923C1E9A4FD6E5EE590F8 /* Pods_Skateboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB82947DDF292CBC6070007 /* Pods_Skateboarding.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		6DD1C2B225CD902C00D9EB52 /* CommentLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentLabelTableViewCell.xib; sourceTree = "<group>"; };
 		6DF458B025D4079E009C17D4 /* PickLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLocationViewController.swift; sourceTree = "<group>"; };
 		A463CC6A2938DD54892F3777 /* Pods-Skateboarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skateboarding.release.xcconfig"; path = "Target Support Files/Pods-Skateboarding/Pods-Skateboarding.release.xcconfig"; sourceTree = "<group>"; };
+		E2DE1886286B023900189AAD /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		E2DE1888286B11A400189AAD /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 				6DBD491925B1599D0011C3A9 /* PostTableViewCell.swift */,
 				6DBD491A25B1599D0011C3A9 /* PostTableViewCell.xib */,
 				6DBF66F325A80F40003A96E0 /* Main.storyboard */,
+				E2DE1888286B11A400189AAD /* HomeViewController.storyboard */,
+				E2DE1886286B023900189AAD /* SettingViewController.storyboard */,
 				6DBF66F625A80F45003A96E0 /* Assets.xcassets */,
 				6DBF66F825A80F45003A96E0 /* LaunchScreen.storyboard */,
 				6DBF66FB25A80F45003A96E0 /* Info.plist */,
@@ -276,6 +282,8 @@
 				6DBF66F525A80F40003A96E0 /* Main.storyboard in Resources */,
 				6DD1C2B025CD3FD000D9EB52 /* commentTableViewCell.xib in Resources */,
 				6D6DAF3025CA278C00C4CBF9 /* categoryTableViewCell.xib in Resources */,
+				E2DE1889286B11A400189AAD /* HomeViewController.storyboard in Resources */,
+				E2DE1887286B023900189AAD /* SettingViewController.storyboard in Resources */,
 				6D812B6125C80A1500232984 /* roadsurfaceTableViewCell.xib in Resources */,
 				6D6DAF2C25C91FEC00C4CBF9 /* rainyTableViewCell.xib in Resources */,
 			);

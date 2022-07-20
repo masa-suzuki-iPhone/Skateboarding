@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMB-SW-18n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMB-SW-18n">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -527,71 +528,6 @@
             </objects>
             <point key="canvasLocation" x="1110" y="2594"/>
         </scene>
-        <!--設定-->
-        <scene sceneID="2Xl-cw-GHA">
-            <objects>
-                <viewController storyboardIdentifier="Setting" id="Og4-Qi-pev" customClass="SettingViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="G5v-hp-snY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-rr-G92">
-                                <rect key="frame" x="57" y="124" width="300" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="cdp-4S-Md4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQi-0u-zfe">
-                                <rect key="frame" x="57" y="168" width="300" height="32"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Bas-lR-t8r"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="表示名を変更"/>
-                                <connections>
-                                    <action selector="handleChangeButoon:" destination="Og4-Qi-pev" eventType="touchUpInside" id="lLb-bA-WyX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mn-1H-Vqx">
-                                <rect key="frame" x="57" y="210" width="300" height="32"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="m34-rj-DID"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="ログアウト"/>
-                                <connections>
-                                    <action selector="handlLogoutButton:" destination="Og4-Qi-pev" eventType="touchUpInside" id="jW7-Xw-Www"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ZUb-He-XHx"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="OMw-rr-G92" firstAttribute="centerX" secondItem="G5v-hp-snY" secondAttribute="centerX" id="KIw-oB-1kh"/>
-                            <constraint firstItem="bQi-0u-zfe" firstAttribute="top" secondItem="OMw-rr-G92" secondAttribute="bottom" constant="10" id="OUR-EQ-Iuy"/>
-                            <constraint firstItem="7mn-1H-Vqx" firstAttribute="top" secondItem="bQi-0u-zfe" secondAttribute="bottom" constant="10" id="pE8-rQ-Z77"/>
-                            <constraint firstItem="OMw-rr-G92" firstAttribute="top" secondItem="ZUb-He-XHx" secondAttribute="top" constant="80" id="t3k-i7-TWH"/>
-                            <constraint firstItem="7mn-1H-Vqx" firstAttribute="centerX" secondItem="G5v-hp-snY" secondAttribute="centerX" id="vJM-2P-VgW"/>
-                            <constraint firstItem="bQi-0u-zfe" firstAttribute="centerX" secondItem="G5v-hp-snY" secondAttribute="centerX" id="wGK-Id-mxl"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="fNB-iw-I5T"/>
-                    <connections>
-                        <outlet property="changeButton" destination="bQi-0u-zfe" id="fnr-T3-D89"/>
-                        <outlet property="displayNameTextField" destination="OMw-rr-G92" id="kH6-eE-3Kq"/>
-                        <outlet property="logoutButton" destination="7mn-1H-Vqx" id="BGO-U0-nG5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m8i-lA-c1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1109" y="1643"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="gLc-Hh-Q2L">
             <objects>
@@ -694,12 +630,33 @@
                         <segue destination="trO-CI-4qT" kind="relationship" relationship="viewControllers" id="ggq-WK-Xk3"/>
                         <segue destination="VM7-oB-PAq" kind="relationship" relationship="viewControllers" id="Zo8-BW-Uks"/>
                         <segue destination="g90-GU-toH" kind="relationship" relationship="viewControllers" id="caw-c1-Qqr"/>
-                        <segue destination="Og4-Qi-pev" kind="relationship" relationship="viewControllers" id="w4q-UF-ivw"/>
+                        <segue destination="ZfW-Jj-mnl" kind="relationship" relationship="viewControllers" id="TQg-AA-0fD"/>
+                        <segue destination="U7c-sg-zy6" kind="relationship" relationship="viewControllers" id="ie4-k5-Cua"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cof-hz-CQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="157.36607142857142"/>
+        </scene>
+        <!--SettingViewController-->
+        <scene sceneID="Aa3-Ff-b34">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingViewController" id="ZfW-Jj-mnl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="OP3-I0-I7K"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZ5-g4-UuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="463"/>
+        </scene>
+        <!--HomeViewController-->
+        <scene sceneID="7tP-nv-mUr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeViewController" id="U7c-sg-zy6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="スポット" image="list.dash" catalog="system" id="dtx-u1-9gh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leB-1q-FFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="-134"/>
         </scene>
         <!--スポット一覧-->
         <scene sceneID="96U-ov-uhC">

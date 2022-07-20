@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Af3-B7-69b">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Ug-Vq-haJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Af3-B7-69b" userLabel="Navigation Controller" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="MMW-t1-cjo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W9x-bb-FEK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9vi-fZ-6BM" kind="relationship" relationship="rootViewController" id="cAm-zL-pZI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i1o-hE-1QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="831.69642857142856"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="VaG-r4-HJw">
+            <objects>
+                <viewController storyboardIdentifier="Setting" id="9vi-fZ-6BM" customClass="SettingViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WgZ-ob-8GK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-yR-Er9">
+                                <rect key="frame" x="57" y="168" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Qgl-tj-X0l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndS-kK-WXj">
+                                <rect key="frame" x="57" y="212" width="300" height="32"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="4Zv-8R-C8V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="表示名を変更"/>
+                                <connections>
+                                    <action selector="handleChangeButoon:" destination="9vi-fZ-6BM" eventType="touchUpInside" id="Pd6-5F-9y4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS5-Ou-aIm">
+                                <rect key="frame" x="57" y="254" width="300" height="32"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="46g-eW-LyV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="ログアウト"/>
+                                <connections>
+                                    <action selector="handlLogoutButton:" destination="9vi-fZ-6BM" eventType="touchUpInside" id="UD5-Nq-7tX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hhf-RY-frS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ndS-kK-WXj" firstAttribute="top" secondItem="3zW-yR-Er9" secondAttribute="bottom" constant="10" id="0Fn-zM-4f6"/>
+                            <constraint firstItem="SS5-Ou-aIm" firstAttribute="centerX" secondItem="WgZ-ob-8GK" secondAttribute="centerX" id="36e-7K-Eyv"/>
+                            <constraint firstItem="ndS-kK-WXj" firstAttribute="centerX" secondItem="WgZ-ob-8GK" secondAttribute="centerX" id="Qlz-PU-sIw"/>
+                            <constraint firstItem="SS5-Ou-aIm" firstAttribute="top" secondItem="ndS-kK-WXj" secondAttribute="bottom" constant="10" id="SN8-LR-1Tj"/>
+                            <constraint firstItem="3zW-yR-Er9" firstAttribute="top" secondItem="Hhf-RY-frS" secondAttribute="top" constant="80" id="bbt-8G-keC"/>
+                            <constraint firstItem="3zW-yR-Er9" firstAttribute="centerX" secondItem="WgZ-ob-8GK" secondAttribute="centerX" id="dLd-hZ-ueH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="設定" image="setting" id="C0U-MW-Fsh"/>
+                    <navigationItem key="navigationItem" title="設定" id="XNc-AW-OGL"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="changeButton" destination="ndS-kK-WXj" id="zyW-RR-2Al"/>
+                        <outlet property="displayNameTextField" destination="3zW-yR-Er9" id="bwe-09-5dA"/>
+                        <outlet property="logoutButton" destination="SS5-Ou-aIm" id="yfl-8r-heV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F9u-Wk-7py" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1931.8840579710147" y="831.69642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="setting" width="25" height="25"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
