@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // Firestoreのリスナー
     var listener: ListenerRegistration!
     
+    var postDataToSend: PostData?
+    
     
     
     override func viewDidLoad() {
@@ -55,39 +57,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: mapviewWillAppear")
         
+        //tabbarを復活
+        tabBarController?.tabBar.isHidden = false
         mapManager.startUpdatingLocation()
         
-//        if Auth.auth().currentUser != nil {
-//            // ログイン済み
-//            if listener == nil {
-//                // listener未登録なら、登録してスナップショットを受信する
-//                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-//                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
-//                    if let error = error {
-//                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-//                        return
-//                    }
-//                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-//                    self.postArray = querySnapshot!.documents.map { document in
-//                        print("DEBUG_PRINT: document取得 \(document.documentID)")
-//                        let postData = PostData(document: document)
-//
-//                        self.makeMarker(postData: postData)
-//                        return postData
-//                    }
-//
-//                }
-//            }
-//        } else {
-//            // ログイン未(またはログアウト済み)
-//            if listener != nil {
-//                // listener登録済みなら削除してpostArrayをクリアする
-//                listener.remove()
-//                listener = nil
-//                postArray = []
-//
-//            }
-//        }
+        if Auth.auth().currentUser != nil {
+            // ログイン済み
+            if listener == nil {
+                // listener未登録なら、登録してスナップショットを受信する
+                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
+                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                    if let error = error {
+                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                        return
+                    }
+                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                    self.postArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        let postData = PostData(document: document)
+
+                        self.makeMarker(postData: postData)
+                        return postData
+                    }
+
+                }
+            }
+        } else {
+            // ログイン未(またはログアウト済み)
+            if listener != nil {
+                // listener登録済みなら削除してpostArrayをクリアする
+                listener.remove()
+                listener = nil
+                postArray = []
+
+            }
+        }
         
       
     }
@@ -129,9 +133,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             }
         }
 
-        performSegue(withIdentifier: "moveToDetail", sender: self)
-      
-        return true // or false as needed.
+//        performSegue(withIdentifier: "moveToDetail", sender: self)
+        let storyboard = UIStoryboard(name: "PostViewController", bundle: nil)
+        guard let postViewController = storyboard.instantiateInitialViewController() as? PostViewController else { return true }
+        navigationController?.pushViewController(postViewController, animated: true)
+        postViewController.postDataReceived = postDataToSend
+        
+        return true //
     }
     
     //現在地の読み込み完了時に呼ばれるメソッド
@@ -142,31 +150,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let now :GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude,longitude:longitude,zoom:14)
         gmaps.camera = now
     }
-    
-    var postDataToSend: PostData?
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "moveToDetail" {
-            let next = segue.destination as! DemoCommentViewController
-            if let postData = postDataToSend {
-                next.setPostData(postData)
-                
-            }
-            
-            
-        }
-    }
-    
-    
-    
-    /*
-     // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

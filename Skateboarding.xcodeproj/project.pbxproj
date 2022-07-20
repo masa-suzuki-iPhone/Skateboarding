@@ -14,10 +14,9 @@
 		6D6DAF3025CA278C00C4CBF9 /* categoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6DAF2E25CA278C00C4CBF9 /* categoryTableViewCell.xib */; };
 		6D6DAF3325CA39AA00C4CBF9 /* descriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DAF3125CA39AA00C4CBF9 /* descriptionTableViewCell.swift */; };
 		6D6DAF3425CA39AA00C4CBF9 /* descriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6DAF3225CA39AA00C4CBF9 /* descriptionTableViewCell.xib */; };
-		6D6DAF3825CC108300C4CBF9 /* PostCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DAF3725CC108300C4CBF9 /* PostCommentViewController.swift */; };
+		6D6DAF3825CC108300C4CBF9 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DAF3725CC108300C4CBF9 /* CommentViewController.swift */; };
 		6D812B5625C3EA6E00232984 /* imageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D812B5425C3EA6E00232984 /* imageTableViewCell.swift */; };
 		6D812B5725C3EA6E00232984 /* imageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D812B5525C3EA6E00232984 /* imageTableViewCell.xib */; };
-		6D812B5925C3EAFD00232984 /* DemoCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D812B5825C3EAFD00232984 /* DemoCommentViewController.swift */; };
 		6D812B5C25C7F45600232984 /* captionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D812B5A25C7F45600232984 /* captionTableViewCell.swift */; };
 		6D812B5D25C7F45600232984 /* captionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D812B5B25C7F45600232984 /* captionTableViewCell.xib */; };
 		6D812B6025C80A1500232984 /* roadsurfaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D812B5E25C80A1500232984 /* roadsurfaceTableViewCell.swift */; };
@@ -45,6 +44,10 @@
 		6DD1C2B325CD902C00D9EB52 /* CommentLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD1C2B125CD902C00D9EB52 /* CommentLabelTableViewCell.swift */; };
 		6DD1C2B425CD902C00D9EB52 /* CommentLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD1C2B225CD902C00D9EB52 /* CommentLabelTableViewCell.xib */; };
 		6DF458B125D4079E009C17D4 /* PickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF458B025D4079E009C17D4 /* PickLocationViewController.swift */; };
+		E2BCCA942887ABF30082D584 /* PostViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BCCA932887ABF30082D584 /* PostViewController.storyboard */; };
+		E2BCCA962887AC290082D584 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCCA952887AC290082D584 /* PostViewController.swift */; };
+		E2BCCA982887C8420082D584 /* CommentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BCCA972887C8420082D584 /* CommentViewController.storyboard */; };
+		E2BCCA9A2887D0270082D584 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BCCA992887D0270082D584 /* MapViewController.storyboard */; };
 		E2DE1887286B023900189AAD /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DE1886286B023900189AAD /* SettingViewController.storyboard */; };
 		E2DE1889286B11A400189AAD /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DE1888286B11A400189AAD /* HomeViewController.storyboard */; };
 		E80923C1E9A4FD6E5EE590F8 /* Pods_Skateboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB82947DDF292CBC6070007 /* Pods_Skateboarding.framework */; };
@@ -60,10 +63,9 @@
 		6D6DAF2E25CA278C00C4CBF9 /* categoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = categoryTableViewCell.xib; sourceTree = "<group>"; };
 		6D6DAF3125CA39AA00C4CBF9 /* descriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descriptionTableViewCell.swift; sourceTree = "<group>"; };
 		6D6DAF3225CA39AA00C4CBF9 /* descriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = descriptionTableViewCell.xib; sourceTree = "<group>"; };
-		6D6DAF3725CC108300C4CBF9 /* PostCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentViewController.swift; sourceTree = "<group>"; };
+		6D6DAF3725CC108300C4CBF9 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		6D812B5425C3EA6E00232984 /* imageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageTableViewCell.swift; sourceTree = "<group>"; };
 		6D812B5525C3EA6E00232984 /* imageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imageTableViewCell.xib; sourceTree = "<group>"; };
-		6D812B5825C3EAFD00232984 /* DemoCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCommentViewController.swift; sourceTree = "<group>"; };
 		6D812B5A25C7F45600232984 /* captionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = captionTableViewCell.swift; sourceTree = "<group>"; };
 		6D812B5B25C7F45600232984 /* captionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = captionTableViewCell.xib; sourceTree = "<group>"; };
 		6D812B5E25C80A1500232984 /* roadsurfaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roadsurfaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,6 +96,10 @@
 		6DD1C2B225CD902C00D9EB52 /* CommentLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentLabelTableViewCell.xib; sourceTree = "<group>"; };
 		6DF458B025D4079E009C17D4 /* PickLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLocationViewController.swift; sourceTree = "<group>"; };
 		A463CC6A2938DD54892F3777 /* Pods-Skateboarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skateboarding.release.xcconfig"; path = "Target Support Files/Pods-Skateboarding/Pods-Skateboarding.release.xcconfig"; sourceTree = "<group>"; };
+		E2BCCA932887ABF30082D584 /* PostViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostViewController.storyboard; sourceTree = "<group>"; };
+		E2BCCA952887AC290082D584 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		E2BCCA972887C8420082D584 /* CommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentViewController.storyboard; sourceTree = "<group>"; };
+		E2BCCA992887D0270082D584 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		E2DE1886286B023900189AAD /* SettingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		E2DE1888286B11A400189AAD /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,20 +125,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6D5EE54225D131F000F5527C /* PostCommentView */ = {
+		6D5EE54225D131F000F5527C /* CommentView */ = {
 			isa = PBXGroup;
 			children = (
-				6D6DAF3725CC108300C4CBF9 /* PostCommentViewController.swift */,
+				6D6DAF3725CC108300C4CBF9 /* CommentViewController.swift */,
 				6DD1C2AD25CD3FD000D9EB52 /* commentTableViewCell.swift */,
 				6DD1C2AE25CD3FD000D9EB52 /* commentTableViewCell.xib */,
 			);
-			path = PostCommentView;
+			path = CommentView;
 			sourceTree = "<group>";
 		};
-		6D812B5325C2774200232984 /* DetailCommentView */ = {
+		6D812B5325C2774200232984 /* PostView */ = {
 			isa = PBXGroup;
 			children = (
-				6D812B5825C3EAFD00232984 /* DemoCommentViewController.swift */,
+				E2BCCA952887AC290082D584 /* PostViewController.swift */,
 				6D812B5425C3EA6E00232984 /* imageTableViewCell.swift */,
 				6D812B5525C3EA6E00232984 /* imageTableViewCell.xib */,
 				6D812B5A25C7F45600232984 /* captionTableViewCell.swift */,
@@ -150,7 +156,7 @@
 				6DD1C2B125CD902C00D9EB52 /* CommentLabelTableViewCell.swift */,
 				6DD1C2B225CD902C00D9EB52 /* CommentLabelTableViewCell.xib */,
 			);
-			path = DetailCommentView;
+			path = PostView;
 			sourceTree = "<group>";
 		};
 		6DBF66E125A80F40003A96E0 = {
@@ -179,8 +185,8 @@
 				6DBF670125A8123C003A96E0 /* LoginViewController.swift */,
 				6D5EE54325D1331100F5527C /* MapViewController.swift */,
 				6DBF670325A8124C003A96E0 /* HomeViewController.swift */,
-				6D812B5325C2774200232984 /* DetailCommentView */,
-				6D5EE54225D131F000F5527C /* PostCommentView */,
+				6D812B5325C2774200232984 /* PostView */,
+				6D5EE54225D131F000F5527C /* CommentView */,
 				6DBF670525A8125F003A96E0 /* ImageSelectViewController.swift */,
 				6DBFD10725F4D9B300683CB6 /* PostInformatinViewController.swift */,
 				6DF458B025D4079E009C17D4 /* PickLocationViewController.swift */,
@@ -192,6 +198,9 @@
 				6DBD491A25B1599D0011C3A9 /* PostTableViewCell.xib */,
 				6DBF66F325A80F40003A96E0 /* Main.storyboard */,
 				E2DE1888286B11A400189AAD /* HomeViewController.storyboard */,
+				E2BCCA992887D0270082D584 /* MapViewController.storyboard */,
+				E2BCCA932887ABF30082D584 /* PostViewController.storyboard */,
+				E2BCCA972887C8420082D584 /* CommentViewController.storyboard */,
 				E2DE1886286B023900189AAD /* SettingViewController.storyboard */,
 				6DBF66F625A80F45003A96E0 /* Assets.xcassets */,
 				6DBF66F825A80F45003A96E0 /* LaunchScreen.storyboard */,
@@ -282,7 +291,10 @@
 				6DBF66F525A80F40003A96E0 /* Main.storyboard in Resources */,
 				6DD1C2B025CD3FD000D9EB52 /* commentTableViewCell.xib in Resources */,
 				6D6DAF3025CA278C00C4CBF9 /* categoryTableViewCell.xib in Resources */,
+				E2BCCA982887C8420082D584 /* CommentViewController.storyboard in Resources */,
+				E2BCCA942887ABF30082D584 /* PostViewController.storyboard in Resources */,
 				E2DE1889286B11A400189AAD /* HomeViewController.storyboard in Resources */,
+				E2BCCA9A2887D0270082D584 /* MapViewController.storyboard in Resources */,
 				E2DE1887286B023900189AAD /* SettingViewController.storyboard in Resources */,
 				6D812B6125C80A1500232984 /* roadsurfaceTableViewCell.xib in Resources */,
 				6D6DAF2C25C91FEC00C4CBF9 /* rainyTableViewCell.xib in Resources */,
@@ -358,16 +370,16 @@
 				6D812B6425C80E1300232984 /* kickoutTableViewCell.swift in Sources */,
 				6DBFD10825F4D9B300683CB6 /* PostInformatinViewController.swift in Sources */,
 				6D6DAF2B25C91FEC00C4CBF9 /* rainyTableViewCell.swift in Sources */,
-				6D6DAF3825CC108300C4CBF9 /* PostCommentViewController.swift in Sources */,
+				6D6DAF3825CC108300C4CBF9 /* CommentViewController.swift in Sources */,
 				6DD1C2AF25CD3FD000D9EB52 /* commentTableViewCell.swift in Sources */,
 				6DF458B125D4079E009C17D4 /* PickLocationViewController.swift in Sources */,
 				6DD1C2B325CD902C00D9EB52 /* CommentLabelTableViewCell.swift in Sources */,
 				6D812B5625C3EA6E00232984 /* imageTableViewCell.swift in Sources */,
 				6D6DAF2F25CA278C00C4CBF9 /* categoryTableViewCell.swift in Sources */,
 				6DBD491B25B1599D0011C3A9 /* PostTableViewCell.swift in Sources */,
+				E2BCCA962887AC290082D584 /* PostViewController.swift in Sources */,
 				6DBF670625A8125F003A96E0 /* ImageSelectViewController.swift in Sources */,
 				6D5EE54425D1331100F5527C /* MapViewController.swift in Sources */,
-				6D812B5925C3EAFD00232984 /* DemoCommentViewController.swift in Sources */,
 				6DBF670C25A822CA003A96E0 /* TabBarController.swift in Sources */,
 				6D6DAF3325CA39AA00C4CBF9 /* descriptionTableViewCell.swift in Sources */,
 				6D812B5C25C7F45600232984 /* captionTableViewCell.swift in Sources */,

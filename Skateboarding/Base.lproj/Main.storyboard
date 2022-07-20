@@ -9,89 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post Comment View Controller-->
-        <scene sceneID="jej-gJ-aFa">
-            <objects>
-                <viewController id="EpR-Jd-ujE" customClass="PostCommentViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RAy-sf-UN8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fqt-EH-etb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="isz-eG-q2b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="isz-eG-q2b" firstAttribute="bottom" secondItem="fqt-EH-etb" secondAttribute="bottom" id="F4h-E9-OX6"/>
-                            <constraint firstItem="fqt-EH-etb" firstAttribute="top" secondItem="isz-eG-q2b" secondAttribute="top" id="IaA-FN-LHl"/>
-                            <constraint firstItem="isz-eG-q2b" firstAttribute="trailing" secondItem="fqt-EH-etb" secondAttribute="trailing" id="itH-z8-QNa"/>
-                            <constraint firstItem="fqt-EH-etb" firstAttribute="leading" secondItem="isz-eG-q2b" secondAttribute="leading" id="t4H-1b-OCW"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="S4R-5r-yOt"/>
-                    <connections>
-                        <outlet property="CommentTable" destination="fqt-EH-etb" id="ViY-O5-pQM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xHu-Bw-ZIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-778" y="2594"/>
-        </scene>
-        <!--Map View Controller-->
-        <scene sceneID="SgA-IF-CPr">
-            <objects>
-                <viewController storyboardIdentifier="Map" id="qSi-D8-elS" customClass="MapViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0V7-JL-LYt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="roP-h2-JWc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="WqU-9U-dwJ"/>
-                    <connections>
-                        <segue destination="Z5A-UF-KuU" kind="presentation" identifier="moveToDetail" id="KG4-Cj-eml"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5sx-9k-8fZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-778" y="1643"/>
-        </scene>
-        <!--Home View Controller-->
-        <scene sceneID="Y3n-JW-nub">
-            <objects>
-                <viewController storyboardIdentifier="Home" id="rnF-zk-g8J" customClass="HomeViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AAR-hu-Nd4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UXX-TI-UJr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Msi-pt-i2p"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Msi-pt-i2p" firstAttribute="trailing" secondItem="UXX-TI-UJr" secondAttribute="trailing" id="1By-3y-AYe"/>
-                            <constraint firstItem="UXX-TI-UJr" firstAttribute="top" secondItem="Msi-pt-i2p" secondAttribute="top" id="3Kh-Dq-Pqp"/>
-                            <constraint firstItem="UXX-TI-UJr" firstAttribute="leading" secondItem="Msi-pt-i2p" secondAttribute="leading" id="mxb-YT-27K"/>
-                            <constraint firstItem="Msi-pt-i2p" firstAttribute="bottom" secondItem="UXX-TI-UJr" secondAttribute="bottom" id="xKO-42-6xh"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Dl9-6M-zaL"/>
-                    <connections>
-                        <outlet property="tableView" destination="UXX-TI-UJr" id="9Dv-9S-J7h"/>
-                        <segue destination="Z5A-UF-KuU" kind="show" identifier="ShowDemoView" id="VlM-D7-y3E"/>
-                        <segue destination="EpR-Jd-ujE" kind="show" identifier="ShowPostCommentView" id="qnh-7Z-zeb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OGU-a7-UyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1875" y="1643"/>
-        </scene>
         <!--投稿-->
         <scene sceneID="mRO-zl-vh6">
             <objects>
@@ -161,37 +78,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hm3-1Z-4Nn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137" y="1643"/>
-        </scene>
-        <!--Demo Comment View Controller-->
-        <scene sceneID="QTG-HZ-iU6">
-            <objects>
-                <viewController id="Z5A-UF-KuU" customClass="DemoCommentViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4RZ-x6-7Xd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ct5-zc-U5I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="d86-i8-l6z"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="d86-i8-l6z" firstAttribute="trailing" secondItem="Ct5-zc-U5I" secondAttribute="trailing" id="1z7-dT-06X"/>
-                            <constraint firstItem="d86-i8-l6z" firstAttribute="bottom" secondItem="Ct5-zc-U5I" secondAttribute="bottom" id="5az-Tb-Etc"/>
-                            <constraint firstItem="Ct5-zc-U5I" firstAttribute="leading" secondItem="d86-i8-l6z" secondAttribute="leading" id="XGt-sI-UeY"/>
-                            <constraint firstItem="Ct5-zc-U5I" firstAttribute="top" secondItem="d86-i8-l6z" secondAttribute="top" id="Z3Q-QJ-tAg"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="tBF-PR-Qlx"/>
-                    <connections>
-                        <outlet property="detailTableView" destination="Ct5-zc-U5I" id="LA7-EI-Kee"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RU1-Us-enh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1875" y="2594"/>
         </scene>
         <!--Post Informatin View Controller-->
         <scene sceneID="aOU-bX-NuV">
@@ -627,11 +513,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="trO-CI-4qT" kind="relationship" relationship="viewControllers" id="ggq-WK-Xk3"/>
-                        <segue destination="VM7-oB-PAq" kind="relationship" relationship="viewControllers" id="Zo8-BW-Uks"/>
+                        <segue destination="U7c-sg-zy6" kind="relationship" relationship="viewControllers" id="ie4-k5-Cua"/>
+                        <segue destination="AcS-rX-3gf" kind="relationship" relationship="viewControllers" id="TC5-Xr-vHu"/>
                         <segue destination="g90-GU-toH" kind="relationship" relationship="viewControllers" id="caw-c1-Qqr"/>
                         <segue destination="ZfW-Jj-mnl" kind="relationship" relationship="viewControllers" id="TQg-AA-0fD"/>
-                        <segue destination="U7c-sg-zy6" kind="relationship" relationship="viewControllers" id="ie4-k5-Cua"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cof-hz-CQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -658,48 +543,17 @@
             </objects>
             <point key="canvasLocation" x="1009" y="-134"/>
         </scene>
-        <!--スポット一覧-->
-        <scene sceneID="96U-ov-uhC">
+        <!--MapViewController-->
+        <scene sceneID="9GI-Jr-duO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="trO-CI-4qT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="スポット一覧" image="list.dash" catalog="system" id="c55-pa-afi"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcs-RC-CQ5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rnF-zk-g8J" kind="relationship" relationship="rootViewController" id="WC9-aq-f0v"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ahP-ey-Bxj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MapViewController" id="AcS-rX-3gf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="マップ" image="map" catalog="system" id="TmN-h0-3JK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbZ-k8-EQh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1875" y="893"/>
-        </scene>
-        <!--マップ-->
-        <scene sceneID="ACq-IG-h0W">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VM7-oB-PAq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="マップ" image="map" catalog="system" id="HZJ-zF-OWi"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VVS-s1-uWG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qSi-D8-elS" kind="relationship" relationship="rootViewController" id="YN2-zE-E25"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VR4-ln-2Fu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-778" y="893"/>
+            <point key="canvasLocation" x="1064" y="143"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="VlM-D7-y3E"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="camera" width="25" height="25"/>
