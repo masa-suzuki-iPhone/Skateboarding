@@ -1,5 +1,5 @@
 //
-//  PostCommentViewController.swift
+//  CommentViewController.swift
 //  Skateboarding
 //
 //  Created by 鈴木正義 on 2021/02/04.
@@ -11,15 +11,10 @@ import Firebase
 import FirebaseFirestore
 import SVProgressHUD
 
-class PostCommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var CommentTable: UITableView!
+    @IBOutlet weak var commentTableView: UITableView!
     var postDataReceived: PostData!
-    
-    func setPostData(_ postData: PostData) {
-        postDataReceived = postData
-    }
-    
     
     let commentInputContainerView:UIView = {
         let view = UIView()
@@ -52,17 +47,17 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
         title = "コメント"
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        CommentTable.delegate = self
-        CommentTable.dataSource = self
+        commentTableView.delegate = self
+        commentTableView.dataSource = self
         
         //         カスタムセルを登録する
         let nib = UINib(nibName: "captionTableViewCell", bundle: nil)
-        CommentTable.register(nib, forCellReuseIdentifier: "captionCell")
+        commentTableView.register(nib, forCellReuseIdentifier: "captionCell")
         let nib2 = UINib(nibName: "commentTableViewCell", bundle: nil)
-        CommentTable.register(nib2, forCellReuseIdentifier: "commentCell")
+        commentTableView.register(nib2, forCellReuseIdentifier: "commentCell")
         
         //空の線のセルの区切りを消す
-        CommentTable.tableFooterView = UIView()
+        commentTableView.tableFooterView = UIView()
         // tabbarを隠す
         tabBarController?.tabBar.isHidden = true
         
@@ -112,7 +107,7 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
                 // HUDで投稿完了を表示する
                 SVProgressHUD.showSuccess(withStatus: "コメントを投稿しました")
                 // TableViewの表示を更新する
-                self.CommentTable.reloadData()
+                self.commentTableView.reloadData()
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -159,7 +154,7 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
         
         if indexPath.row == 0 {
             
-            let cell = CommentTable.dequeueReusableCell(withIdentifier: "captionCell", for: indexPath)
+            let cell = commentTableView.dequeueReusableCell(withIdentifier: "captionCell", for: indexPath)
             if let cell = cell as? captionTableViewCell{
                 cell.setPostData(postDataReceived)
                 return cell
@@ -167,7 +162,7 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
             return cell
         } else {
             
-            let cell = CommentTable.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
+            let cell = commentTableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
             cell.setPostData(postDataReceived)
             cell.someonesCommentLabel.text = postDataReceived.comments[indexPath.row - 1]
             

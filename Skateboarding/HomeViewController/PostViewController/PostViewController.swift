@@ -1,33 +1,25 @@
 //
-//  DemoCommentViewController.swift
+//  PostViewController.swift
 //  Skateboarding
 //
-//  Created by 鈴木正義 on 2021/01/29.
-//  Copyright © 2021 masayoshi.suzuki. All rights reserved.
+//  Created by suzuki.masayoshi on 2022/07/20.
+//  Copyright © 2022 masayoshi.suzuki. All rights reserved.
 //
 
 import UIKit
-import FirebaseUI
 
+class PostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
-class DemoCommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var detailTableView: UITableView!
-    
+    @IBOutlet weak var postTableView: UITableView!
     
     //前画面からデータを受け取るための変数
     var postDataReceived: PostData!
-    
-    func setPostData(_ postData: PostData) {
-        postDataReceived = postData
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //空の線のセルの区切りを消す
-        detailTableView.tableFooterView = UIView()
+        postTableView.tableFooterView = UIView()
         // tabbarを隠す
         tabBarController?.tabBar.isHidden = true
  
@@ -35,38 +27,38 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
         if let navigation = self.navigationController {
         navigation.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         }
-        detailTableView.delegate = self
-        detailTableView.dataSource = self
+        postTableView.delegate = self
+        postTableView.dataSource = self
         
         //         カスタムセルを登録する
         let nib = UINib(nibName: "imageTableViewCell", bundle: nil)
-        detailTableView.register(nib, forCellReuseIdentifier: "imageCell")
+        postTableView.register(nib, forCellReuseIdentifier: "imageCell")
         
         let nib2 = UINib(nibName: "captionTableViewCell", bundle: nil)
-        detailTableView.register(nib2, forCellReuseIdentifier: "captionCell")
+        postTableView.register(nib2, forCellReuseIdentifier: "captionCell")
         
         let nib3 = UINib(nibName: "roadsurfaceTableViewCell", bundle: nil)
-        detailTableView.register(nib3, forCellReuseIdentifier: "roadSurfaceCell")
+        postTableView.register(nib3, forCellReuseIdentifier: "roadSurfaceCell")
         
         let nib4 = UINib(nibName: "kickoutTableViewCell", bundle: nil)
-        detailTableView.register(nib4, forCellReuseIdentifier: "kickoutCell")
+        postTableView.register(nib4, forCellReuseIdentifier: "kickoutCell")
         
         let nib5 = UINib(nibName: "rainyTableViewCell", bundle: nil)
-        detailTableView.register(nib5, forCellReuseIdentifier: "rainyCell")
+        postTableView.register(nib5, forCellReuseIdentifier: "rainyCell")
         
         let nib6 = UINib(nibName: "categoryTableViewCell", bundle: nil)
-        detailTableView.register(nib6, forCellReuseIdentifier: "categoryCell")
+        postTableView.register(nib6, forCellReuseIdentifier: "categoryCell")
         
         let nib7 = UINib(nibName: "descriptionTableViewCell", bundle: nil)
-        detailTableView.register(nib7, forCellReuseIdentifier: "descriptionCell")
+        postTableView.register(nib7, forCellReuseIdentifier: "descriptionCell")
         
         let nib8 = UINib(nibName: "CommentLabelTableViewCell", bundle: nil)
-        detailTableView.register(nib8, forCellReuseIdentifier: "CommentLabelCell")
+        postTableView.register(nib8, forCellReuseIdentifier: "CommentLabelCell")
         
         let nib9 = UINib(nibName: "commentTableViewCell", bundle: nil)
-        detailTableView.register(nib9, forCellReuseIdentifier: "commentCell")
+        postTableView.register(nib9, forCellReuseIdentifier: "commentCell")
         
-        detailTableView.reloadData()
+        postTableView.reloadData()
         
     }
     
@@ -135,7 +127,7 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentLabelCell", for: indexPath)
             return cell
         default :
-            let cell = detailTableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
+            let cell = postTableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
             cell.setPostData(postDataReceived)
             cell.someonesCommentLabel.text = postDataReceived.comments[indexPath.row - 8]
           return cell

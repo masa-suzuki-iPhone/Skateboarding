@@ -25,7 +25,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is ImageSelectViewController {
             // ImageSelectViewControllerは、タブ切り替えではなくモーダル画面遷移する
-            let imageSelectViewController = storyboard!.instantiateViewController(withIdentifier: "ImageSelect")
+            let imageSelectViewController = storyboard!.instantiateViewController(withIdentifier: "ImageSelectViewController")
             present(imageSelectViewController, animated: true)
             return false
         } else {
@@ -37,12 +37,16 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        // currentUserがnilならログインしていない
-//        if Auth.auth().currentUser == nil {
-//            // ログインしていないときの処理
-//            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-//            self.present(loginViewController!, animated: true, completion: nil)
-//        }
+        // currentUserがnilならログインしていない
+        if Auth.auth().currentUser == nil {
+            // ログインしていないときの処理
+//            let createAccountViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController")
+//            present(createAccountViewController!, animated: true, completion: nil)
+            
+            let storyboard = UIStoryboard(name: "CreateAccountViewController",bundle: nil)
+            guard let createAccountViewController =  storyboard.instantiateInitialViewController() as? CreateAccountViewController else { return }
+            present(createAccountViewController, animated: true) //ココ
+        }
     }
 
 

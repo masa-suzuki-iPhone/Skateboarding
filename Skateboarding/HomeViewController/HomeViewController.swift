@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Firestoreのリスナー
     var listener: ListenerRegistration!
     
+    var postDataToSend: PostData?
+    
     
     
     override func viewDidLoad() {
@@ -43,36 +45,36 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //tabbarを復活
         tabBarController?.tabBar.isHidden = false
         
-//        if Auth.auth().currentUser != nil {
-//            // ログイン済み
-//            if listener == nil {
-//                // listener未登録なら、登録してスナップショットを受信する
-//                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
-//                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
-//                    if let error = error {
-//                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
-//                        return
-//                    }
-//                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
-//                    self.postArray = querySnapshot!.documents.map { document in
-//                        print("DEBUG_PRINT: document取得 \(document.documentID)")
-//                        let postData = PostData(document: document)
-//                        return postData
-//                    }
-//                    // TableViewの表示を更新する
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        } else {
-//            // ログイン未(またはログアウト済み)
-//            if listener != nil {
-//                // listener登録済みなら削除してpostArrayをクリアする
-//                listener.remove()
-//                listener = nil
-//                postArray = []
-//                tableView.reloadData()
-//            }
-//        }
+        if Auth.auth().currentUser != nil {
+            // ログイン済み
+            if listener == nil {
+                // listener未登録なら、登録してスナップショットを受信する
+                let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
+                listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
+                    if let error = error {
+                        print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
+                        return
+                    }
+                    // 取得したdocumentをもとにPostDataを作成し、postArrayの配列にする。
+                    self.postArray = querySnapshot!.documents.map { document in
+                        print("DEBUG_PRINT: document取得 \(document.documentID)")
+                        let postData = PostData(document: document)
+                        return postData
+                    }
+                    // TableViewの表示を更新する
+                    self.tableView.reloadData()
+                }
+            }
+        } else {
+            // ログイン未(またはログアウト済み)
+            if listener != nil {
+                // listener登録済みなら削除してpostArrayをクリアする
+                listener.remove()
+                listener = nil
+                postArray = []
+                tableView.reloadData()
+            }
+        }
     
     }
     
@@ -108,7 +110,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[tappedIndexPath!.row]
         postDataToSend = postData
-        performSegue(withIdentifier: "ShowDemoView", sender: tableView)
+        
+//        遷移先のストーリーボードを取得して、インスタンス化して、navigationControllerで遷移
+        let storyboard = UIStoryboard(name: "PostViewController", bundle: nil)
+        guard let postViewController = storyboard.instantiateInitialViewController() as? PostViewController else { return }
+        navigationController?.pushViewController(postViewController, animated: true)
+        postViewController.postDataReceived = postDataToSend
         
     }
     
@@ -151,27 +158,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         postDataToSend = postData
-        performSegue(withIdentifier: "ShowPostCommentView", sender: tableView)
-    }
-    
-    var postDataToSend: PostData?
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDemoView" {
-            let indexPath = segue.destination as! DemoCommentViewController
-            if let postData = postDataToSend {
-                indexPath.setPostData(postData)
-                
-            }
-        } else if segue.identifier == "ShowPostCommentView"{
-            let indexPath = segue.destination as! PostCommentViewController
-            if let postData = postDataToSend {
-                indexPath.setPostData(postData)
-                
-            }
-            
-            
-        }
+        
+        //　遷移先のストーリーボードを取得して、インスタンス化して、navigationControllerで遷移
+        let storyboard = UIStoryboard(name: "CommentViewController", bundle: nil)
+        guard let commentViewController = storyboard.instantiateInitialViewController() as? CommentViewController
+        else { return }
+        navigationController?.pushViewController(commentViewController, animated: true)
+        commentViewController.postDataReceived = postDataToSend
     }
     
 }

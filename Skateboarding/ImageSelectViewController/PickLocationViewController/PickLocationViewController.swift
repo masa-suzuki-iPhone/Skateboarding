@@ -155,14 +155,14 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func settingButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
        
-        let postInformatinViewController = self.presentingViewController as! PostInformatinViewController
-        postInformatinViewController.image = image
-        postInformatinViewController.addressString = self.addressString
-        postInformatinViewController.category = category
-        postInformatinViewController.roadsurface = roadsurface
-        postInformatinViewController.kickout = kickout
-        postInformatinViewController.rainy = rainy
-        postInformatinViewController.detail = detail
+        let postFormViewController = self.presentingViewController as! PostFormViewController
+        postFormViewController.image = image
+        postFormViewController.addressString = self.addressString
+        postFormViewController.category = category
+        postFormViewController.roadsurface = roadsurface
+        postFormViewController.kickout = kickout
+        postFormViewController.rainy = rainy
+        postFormViewController.detail = detail
      
     }
     
@@ -170,14 +170,14 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
        
-        let postInformatinViewController = self.presentingViewController as! PostInformatinViewController
-        postInformatinViewController.image = image
-        postInformatinViewController.addressString = ""
-        postInformatinViewController.category = category
-        postInformatinViewController.roadsurface = roadsurface
-        postInformatinViewController.kickout = kickout
-        postInformatinViewController.rainy = rainy
-        postInformatinViewController.detail = detail
+        let postFormViewController = self.presentingViewController as! PostFormViewController
+        postFormViewController.image = image
+        postFormViewController.addressString = ""
+        postFormViewController.category = category
+        postFormViewController.roadsurface = roadsurface
+        postFormViewController.kickout = kickout
+        postFormViewController.rainy = rainy
+        postFormViewController.detail = detail
         
     }
     
