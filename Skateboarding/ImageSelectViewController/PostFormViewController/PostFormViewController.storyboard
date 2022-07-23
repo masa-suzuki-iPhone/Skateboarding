@@ -45,7 +45,7 @@
                                                     <color key="titleColor" systemColor="linkColor"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="h9F-qo-4xW" kind="presentation" identifier="moveLocation" id="Px3-bB-FTm"/>
+                                                    <action selector="moveToPickLocationViewButton:" destination="0kT-Gg-h68" eventType="touchUpInside" id="c5K-pu-dAt"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="位置情報から入力をタップしてください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pw-bg-vl6">
@@ -231,118 +231,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJW-QP-Zzo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="2064"/>
-        </scene>
-        <!--Pick Location View Controller-->
-        <scene sceneID="0yO-lT-Jm6">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="h9F-qo-4xW" customClass="PickLocationViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NJe-O8-r4R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exq-Gf-d0Z">
-                                <rect key="frame" x="20" y="454" width="374" height="30"/>
-                                <state key="normal" title="現在地を表示">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="myLocation:" destination="h9F-qo-4xW" eventType="touchUpInside" id="aSk-an-2Cc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポットの住所（Mapを長押しで住所を設定）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mB-C6-Hh6">
-                                <rect key="frame" x="20" y="494" width="374" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="bhr-Vz-47c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrz-37-e15">
-                                <rect key="frame" x="20" y="524" width="374" height="35"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="g9f-Pf-aQR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fY-BU-61t">
-                                <rect key="frame" x="236" y="634" width="128" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="IwV-kO-Lx7"/>
-                                    <constraint firstAttribute="height" constant="30" id="gCz-cQ-UFk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="設定">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingButton:" destination="h9F-qo-4xW" eventType="touchUpInside" id="4qr-S4-1D3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvD-cX-wTi">
-                                <rect key="frame" x="50" y="634" width="128" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CGn-14-BSI"/>
-                                    <constraint firstAttribute="width" constant="128" id="hDi-j4-Tlv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="キャンセル">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButton:" destination="h9F-qo-4xW" eventType="touchUpInside" id="O9n-1i-sv9"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RWi-WF-lq7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="eho-O0-dWF"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="mh2-C6-LJI" appends="YES" id="dVf-EJ-Sy3"/>
-                                </connections>
-                            </mapView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="bJc-eK-aJj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="bJc-eK-aJj" firstAttribute="trailing" secondItem="RWi-WF-lq7" secondAttribute="trailing" id="0Nx-v2-9Ec"/>
-                            <constraint firstItem="bJc-eK-aJj" firstAttribute="trailing" secondItem="8fY-BU-61t" secondAttribute="trailing" constant="50" id="AC6-tr-wcT"/>
-                            <constraint firstItem="bJc-eK-aJj" firstAttribute="trailing" secondItem="Exq-Gf-d0Z" secondAttribute="trailing" constant="20" id="K9L-Pe-g9b"/>
-                            <constraint firstItem="bJc-eK-aJj" firstAttribute="trailing" secondItem="6mB-C6-Hh6" secondAttribute="trailing" constant="20" id="Kz9-js-8E9"/>
-                            <constraint firstItem="yrz-37-e15" firstAttribute="top" secondItem="6mB-C6-Hh6" secondAttribute="bottom" constant="10" id="LNq-gP-mbj"/>
-                            <constraint firstItem="8fY-BU-61t" firstAttribute="centerY" secondItem="zvD-cX-wTi" secondAttribute="centerY" id="MAh-J4-vXx"/>
-                            <constraint firstItem="bJc-eK-aJj" firstAttribute="trailing" secondItem="yrz-37-e15" secondAttribute="trailing" constant="20" id="NLd-9y-yoR"/>
-                            <constraint firstItem="zvD-cX-wTi" firstAttribute="leading" secondItem="bJc-eK-aJj" secondAttribute="leading" constant="50" id="Q0h-kc-0nh"/>
-                            <constraint firstItem="Exq-Gf-d0Z" firstAttribute="leading" secondItem="bJc-eK-aJj" secondAttribute="leading" constant="20" id="Ufz-t0-MTR"/>
-                            <constraint firstItem="Exq-Gf-d0Z" firstAttribute="top" secondItem="RWi-WF-lq7" secondAttribute="bottom" constant="10" id="XdD-HP-91L"/>
-                            <constraint firstItem="RWi-WF-lq7" firstAttribute="leading" secondItem="bJc-eK-aJj" secondAttribute="leading" id="fiG-69-iDT"/>
-                            <constraint firstItem="RWi-WF-lq7" firstAttribute="top" secondItem="bJc-eK-aJj" secondAttribute="top" id="h50-UZ-eht"/>
-                            <constraint firstItem="zvD-cX-wTi" firstAttribute="top" secondItem="yrz-37-e15" secondAttribute="bottom" constant="75" id="ips-PV-T9P"/>
-                            <constraint firstItem="6mB-C6-Hh6" firstAttribute="top" secondItem="Exq-Gf-d0Z" secondAttribute="bottom" constant="10" id="j2t-62-JRh"/>
-                            <constraint firstItem="yrz-37-e15" firstAttribute="leading" secondItem="bJc-eK-aJj" secondAttribute="leading" constant="20" id="nhi-bp-IFc"/>
-                            <constraint firstItem="6mB-C6-Hh6" firstAttribute="leading" secondItem="bJc-eK-aJj" secondAttribute="leading" constant="20" id="syv-DC-zNB"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="c9V-D7-DKB"/>
-                    <connections>
-                        <outlet property="addressLabel" destination="yrz-37-e15" id="f7k-gf-3Wk"/>
-                        <outlet property="longPress" destination="mh2-C6-LJI" id="yqB-ex-TG8"/>
-                        <outlet property="mapView" destination="RWi-WF-lq7" id="apB-KI-pdB"/>
-                        <outlet property="settingButton" destination="8fY-BU-61t" id="GLk-L6-y0L"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bap-3K-R2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="mh2-C6-LJI">
-                    <connections>
-                        <action selector="longPressTap:" destination="h9F-qo-4xW" id="wmR-Pn-JQJ"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1158" y="1695"/>
         </scene>
     </scenes>
     <resources>

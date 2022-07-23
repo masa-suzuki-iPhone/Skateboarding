@@ -85,12 +85,6 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
         else { return }
         postFormViewController.image = image!
         editor.present(postFormViewController, animated: true)
-        
-//        let storyboard = UIStoryboard(name: "CommentViewController", bundle: nil)
-//        guard let commentViewController = storyboard.instantiateInitialViewController() as? CommentViewController
-//        else { return }
-//        navigationController?.pushViewController(commentViewController, animated: true)
-//        commentViewController.postDataReceived = postDataToSend
     }
     
     // CLImageEditorの編集がキャンセルされた時に呼ばれるメソッド

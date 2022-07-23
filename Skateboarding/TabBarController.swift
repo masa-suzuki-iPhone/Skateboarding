@@ -40,8 +40,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         // currentUserがnilならログインしていない
         if Auth.auth().currentUser == nil {
             // ログインしていないときの処理
-            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-            self.present(loginViewController!, animated: true, completion: nil)
+//            let createAccountViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController")
+//            present(createAccountViewController!, animated: true, completion: nil)
+            
+            let storyboard = UIStoryboard(name: "CreateAccountViewController",bundle: nil)
+            guard let createAccountViewController =  storyboard.instantiateInitialViewController() as? CreateAccountViewController else { return }
+            present(createAccountViewController, animated: true) //ココ
         }
     }
 

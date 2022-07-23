@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  CreateAccountViewController.swift
 //  Skateboarding
 //
 //  Created by 鈴木正義 on 2021/01/08.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var mailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

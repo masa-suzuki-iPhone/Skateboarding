@@ -221,6 +221,25 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
     }
     
+    
+    
+    @IBAction func moveToPickLocationViewButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "PickLocationViewController", bundle: nil)
+        guard let pickLocationViewController = storyboard.instantiateInitialViewController() as? PickLocationViewController
+        else { return }
+        pickLocationViewController.image = image
+        pickLocationViewController.addressString = addressString
+        pickLocationViewController.category = textSpotCategoryField.text ?? ""
+        pickLocationViewController.roadsurface = textRoadSurfaceField.text ?? ""
+        pickLocationViewController.kickout = textKickoutLevelField.text ?? ""
+        pickLocationViewController.rainy = textRainySpotField.text ?? ""
+        pickLocationViewController.detail = textDetailView.text ?? ""
+        present(pickLocationViewController, animated: true)
+        
+        
+    }
+    
+    
     // 投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func handlePostButton(_ sender: Any) {
         if let caption = textField.text, let category = textSpotCategoryField.text , let roadSurface = textRoadSurfaceField.text, let kickout = textKickoutLevelField.text, let rainy = textRainySpotField.text, let detail = textDetailView.text {
@@ -282,8 +301,6 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
-    
-    
     @IBAction func handleCancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -344,22 +361,6 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerWithButtonView2.removeFromSuperview()
         pickerWithButtonView3.removeFromSuperview()
         pickerWithButtonView4.removeFromSuperview()
-    }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "moveLocation" {
-            let pickLocationViewConrtorller:PickLocationViewController = segue.destination as! PickLocationViewController
-            pickLocationViewConrtorller.image = image
-            pickLocationViewConrtorller.addressString = addressString
-            pickLocationViewConrtorller.category = textSpotCategoryField.text ?? ""
-            pickLocationViewConrtorller.roadsurface = textRoadSurfaceField.text ?? ""
-            pickLocationViewConrtorller.kickout = textKickoutLevelField.text ?? ""
-            pickLocationViewConrtorller.rainy = textRainySpotField.text ?? ""
-            pickLocationViewConrtorller.detail = textDetailView.text ?? ""
-        }
-        
     }
     
 }
