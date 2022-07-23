@@ -133,13 +133,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             }
         }
 
-//        performSegue(withIdentifier: "moveToDetail", sender: self)
         let storyboard = UIStoryboard(name: "PostViewController", bundle: nil)
         guard let postViewController = storyboard.instantiateInitialViewController() as? PostViewController else { return true }
         navigationController?.pushViewController(postViewController, animated: true)
         postViewController.postDataReceived = postDataToSend
         
-        return true //
+        return true
     }
     
     //現在地の読み込み完了時に呼ばれるメソッド

@@ -25,7 +25,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is ImageSelectViewController {
             // ImageSelectViewControllerは、タブ切り替えではなくモーダル画面遷移する
-            let imageSelectViewController = storyboard!.instantiateViewController(withIdentifier: "ImageSelect")
+            let imageSelectViewController = storyboard!.instantiateViewController(withIdentifier: "ImageSelectViewController")
             present(imageSelectViewController, animated: true)
             return false
         } else {

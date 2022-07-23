@@ -2,8 +2,8 @@
 //  ImageSelectViewController.swift
 //  Skateboarding
 //
-//  Created by 鈴木正義 on 2021/01/08.
-//  Copyright © 2021 masayoshi.suzuki. All rights reserved.
+//  Created by suzuki.masayoshi on 2022/07/23.
+//  Copyright © 2022 masayoshi.suzuki. All rights reserved.
 //
 
 import UIKit
@@ -74,10 +74,23 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
-        // 投稿画面を開く
-        let postInfomationViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostInformatinViewController
-        postInfomationViewController.image = image!
-        editor.present(postInfomationViewController, animated: true, completion: nil)
+//        // 投稿画面を開く
+//        let postContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostContentViewController") as! PostContentViewController
+//        postContentViewController.image = image!
+//        editor.present(postContentViewController, animated: true, completion: nil)
+        
+        //　遷移先のストーリーボードを取得して、インスタンス化して、navigationControllerで遷移
+        let storyboard = UIStoryboard(name: "PostFormViewController", bundle: nil)
+        guard let postFormViewController = storyboard.instantiateInitialViewController() as? PostFormViewController
+        else { return }
+        postFormViewController.image = image!
+        editor.present(postFormViewController, animated: true)
+        
+//        let storyboard = UIStoryboard(name: "CommentViewController", bundle: nil)
+//        guard let commentViewController = storyboard.instantiateInitialViewController() as? CommentViewController
+//        else { return }
+//        navigationController?.pushViewController(commentViewController, animated: true)
+//        commentViewController.postDataReceived = postDataToSend
     }
     
     // CLImageEditorの編集がキャンセルされた時に呼ばれるメソッド
@@ -88,3 +101,4 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     
     
 }
+

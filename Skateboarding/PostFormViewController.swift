@@ -5,7 +5,6 @@
 //  Created by 鈴木正義 on 2021/03/07.
 //  Copyright © 2021 masayoshi.suzuki. All rights reserved.
 //
-
 import UIKit
 import UIKit
 import Firebase
@@ -13,7 +12,7 @@ import FirebaseFirestore
 import SVProgressHUD
 import MapKit
 
-class PostInformatinViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var image: UIImage!
     var addressString = ""

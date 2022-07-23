@@ -1,5 +1,5 @@
 //
-//  CommentViewController.swift
+//  PostViewController.swift
 //  Skateboarding
 //
 //  Created by suzuki.masayoshi on 2022/07/20.
