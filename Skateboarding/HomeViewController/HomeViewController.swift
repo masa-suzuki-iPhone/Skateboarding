@@ -26,10 +26,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "スポット一覧"
-        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
         //         Do any additional setup after loading the view.

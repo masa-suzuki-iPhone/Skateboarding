@@ -33,9 +33,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "マップ"
-        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
- 
         mapManager.delegate = self
         mapManager.requestWhenInUseAuthorization()
         mapManager.requestAlwaysAuthorization()
@@ -57,8 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: mapviewWillAppear")
         
-        //tabbarを復活
-        tabBarController?.tabBar.isHidden = false
+
         mapManager.startUpdatingLocation()
         
         if Auth.auth().currentUser != nil {
@@ -92,6 +88,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
             }
         }
+        
+        //tabbarを復活
+        tabBarController?.tabBar.isHidden = false
         
       
     }
