@@ -18,7 +18,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var handleLoginButton2: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,6 +89,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
+                    SVProgressHUD.dismiss()
+                    self.showErrorForLogin(error)
                     return
                 }
                 print("DEBUG_PRINT: ログインに成功しました。")
@@ -120,6 +121,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 if let error = error {
                     // エラーがあったら原因をprintして、returnすることで以降の処理を実行せずに処理を終了する
                     print("DEBUG_PRINT: " + error.localizedDescription)
+                    SVProgressHUD.dismiss()
+                    self.showError(error)
                     return
                 }
                 print("DEBUG_PRINT: ユーザー作成に成功しました。")
@@ -148,7 +151,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
     @objc func dismissKeyboard(){
         // キーボードを閉じる
         view.endEditing(true)
@@ -159,6 +161,19 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    private func showErrorForLogin(_ errorOrNil: Error?) {
+        let message = "メールアドレスまたはパスワードが異なります" // ここは後述しますが、とりあえず固定文字列
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showError(_ errorOrNil: Error?) {
+        let message = "エラーが発生しました" // ここは後述しますが、とりあえず固定文字列
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 
