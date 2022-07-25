@@ -19,16 +19,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         // currentUserがnilならログインしていない
         if Auth.auth().currentUser == nil {
-            // ログインしていないときの処理
-//            let createAccountViewController = self.storyboard?.instantiateViewController(withIdentifier: "CreateAccountViewController")
-//            present(createAccountViewController!, animated: true, completion: nil)
-            
-            let storyboard = UIStoryboard(name: "CreateAccountViewController",bundle: nil)
-            guard let createAccountViewController =  storyboard.instantiateInitialViewController() as? CreateAccountViewController else { return }
-            present(createAccountViewController, animated: true) //ココ
+            let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let nav = UINavigationController(rootViewController: loginViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav,animated: true, completion: nil)
         }
     }
 
@@ -44,9 +41,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             return true
         }
     }
-
-
-
-
 
 }

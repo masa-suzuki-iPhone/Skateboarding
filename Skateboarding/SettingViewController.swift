@@ -68,9 +68,11 @@ class SettingViewController: UIViewController {
         // ログアウトする
         try! Auth.auth().signOut()
         // ログイン画面を表示する
-        let storyboard = UIStoryboard(name: "CreateAccountViewController",bundle: nil)
-        guard let createAccountViewController =  storyboard.instantiateInitialViewController() as? CreateAccountViewController else { return }
-        present(createAccountViewController, animated: true)
+        let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nav = UINavigationController(rootViewController: loginViewController)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav,animated: true, completion: nil)
         // ログイン画面から戻ってきた時のためにホーム画面（index = 0）を選択している状態にしておく
         tabBarController?.selectedIndex = 0
     }
