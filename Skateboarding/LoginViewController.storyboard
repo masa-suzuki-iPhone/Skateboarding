@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mdP-ob-0Gw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="gti-HX-u7v">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UzD-br-Eo7" customClass="LoginViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qdt-Gl-Sqo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skate Spot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8v-4B-Dz8">
+                                <rect key="frame" x="0.0" y="238" width="414" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレスを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIp-GU-swW">
+                                <rect key="frame" x="30" y="306" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワードを入力(6文字以上)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SoF-al-Jbk">
+                                <rect key="frame" x="30" y="350" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ed2-iG-pxx">
+                                <rect key="frame" x="30" y="409" width="354" height="36"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="UzD-br-Eo7" eventType="touchUpInside" id="DpC-gm-neT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPF-FN-gm2">
+                                <rect key="frame" x="30" y="450" width="354" height="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="アカウントをお持ちでない方">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="アカウントをお持ちでない方">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="13" name="PingFangSC-Regular"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="13" name="ArialMT"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="新規登録">
+                                            <attributes>
+                                                <color key="NSColor" red="0.01083752419" green="0.15946403410000001" blue="0.82361595080000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="13" name="PingFangSC-Regular"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="moveToCreateAccountViewButton:" destination="UzD-br-Eo7" eventType="touchUpInside" id="v0K-Bw-f7z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="26c-0y-Spv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v8v-4B-Dz8" firstAttribute="leading" secondItem="26c-0y-Spv" secondAttribute="leading" id="26r-X2-mei"/>
+                            <constraint firstItem="SoF-al-Jbk" firstAttribute="top" secondItem="rIp-GU-swW" secondAttribute="bottom" constant="10" id="8Ju-ba-YX2"/>
+                            <constraint firstItem="rIp-GU-swW" firstAttribute="leading" secondItem="26c-0y-Spv" secondAttribute="leading" constant="30" id="F44-Rz-N7D"/>
+                            <constraint firstItem="mPF-FN-gm2" firstAttribute="leading" secondItem="26c-0y-Spv" secondAttribute="leading" constant="30" id="Gjg-7D-kxj"/>
+                            <constraint firstItem="v8v-4B-Dz8" firstAttribute="top" secondItem="26c-0y-Spv" secondAttribute="top" constant="150" id="Sbp-Jo-zeh"/>
+                            <constraint firstItem="26c-0y-Spv" firstAttribute="trailing" secondItem="Ed2-iG-pxx" secondAttribute="trailing" constant="30" id="Xbr-7d-5Qu"/>
+                            <constraint firstItem="mPF-FN-gm2" firstAttribute="top" secondItem="Ed2-iG-pxx" secondAttribute="bottom" constant="5" id="aJo-vE-zEA"/>
+                            <constraint firstItem="Ed2-iG-pxx" firstAttribute="leading" secondItem="26c-0y-Spv" secondAttribute="leading" constant="30" id="ah6-bh-08V"/>
+                            <constraint firstItem="26c-0y-Spv" firstAttribute="trailing" secondItem="mPF-FN-gm2" secondAttribute="trailing" constant="30" id="bf1-UQ-NCN"/>
+                            <constraint firstItem="rIp-GU-swW" firstAttribute="top" secondItem="v8v-4B-Dz8" secondAttribute="bottom" constant="20" id="c2a-1r-l9D"/>
+                            <constraint firstItem="26c-0y-Spv" firstAttribute="trailing" secondItem="rIp-GU-swW" secondAttribute="trailing" constant="30" id="jzL-fi-OaV"/>
+                            <constraint firstItem="Ed2-iG-pxx" firstAttribute="top" secondItem="SoF-al-Jbk" secondAttribute="bottom" constant="25" id="nlu-P9-AS0"/>
+                            <constraint firstItem="SoF-al-Jbk" firstAttribute="leading" secondItem="26c-0y-Spv" secondAttribute="leading" constant="30" id="oN1-0m-SfL"/>
+                            <constraint firstItem="26c-0y-Spv" firstAttribute="trailing" secondItem="SoF-al-Jbk" secondAttribute="trailing" constant="30" id="p6n-q3-csT"/>
+                            <constraint firstItem="v8v-4B-Dz8" firstAttribute="trailing" secondItem="26c-0y-Spv" secondAttribute="trailing" id="uea-gS-2oY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mH8-FI-IjR"/>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="rIp-GU-swW" id="CIc-ab-bcM"/>
+                        <outlet property="loginButton" destination="Ed2-iG-pxx" id="OyZ-87-heA"/>
+                        <outlet property="moveToCreateAccountViewButton" destination="mPF-FN-gm2" id="YTc-TS-7zQ"/>
+                        <outlet property="passwordTextField" destination="SoF-al-Jbk" id="7Z5-Ox-tlK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pgn-Dg-5N9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3920.289855072464" y="2593.5267857142858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="27H-a6-AEG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mdP-ob-0Gw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OWB-WR-7OA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UzD-br-Eo7" kind="relationship" relationship="rootViewController" id="K4Z-gZ-DQT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0bm-7V-l0n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3010.144927536232" y="2593.5267857142858"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

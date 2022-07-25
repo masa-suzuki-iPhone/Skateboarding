@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class CreateAccountViewController: UIViewController, UITextFieldDelegate {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var mailAddressTextField: UITextField!
+    @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
-    @IBOutlet weak var handleLoginButton2: UIButton!
-    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var moveToLoginViewControllerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,72 +40,40 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
-        handleLoginButton2.layer.cornerRadius = 10.0
-        accountButton.layer.cornerRadius = 10.0
+        signupButton.layer.cornerRadius = 10.0
+        moveToLoginViewControllerButton.layer.cornerRadius = 10.0
         
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
-        mailAddressTextField.delegate = self
+        emailAddressTextField.delegate = self
         passwordTextField.delegate = self
         displayNameTextField.delegate = self
         
         
         // ツールバー生成 サイズはsizeToFitメソッドで自動で調整される。
-            let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-
-            //サイズの自動調整。敢えて手動で実装したい場合はCGRectに記述してsizeToFitは呼び出さない。
-            toolBar.sizeToFit()
-
-            // 左側のBarButtonItemはflexibleSpace。これがないと右に寄らない。
-            let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-            // Doneボタン
-            let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(dismissKeyboard))
-
-            // BarButtonItemの配置
-            toolBar.items = [spacer, commitButton]
-            // textViewのキーボードにツールバーを設定
-        mailAddressTextField.inputAccessoryView = toolBar
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        
+        //サイズの自動調整。敢えて手動で実装したい場合はCGRectに記述してsizeToFitは呼び出さない。
+        toolBar.sizeToFit()
+        
+        // 左側のBarButtonItemはflexibleSpace。これがないと右に寄らない。
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // Doneボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(dismissKeyboard))
+        
+        // BarButtonItemの配置
+        toolBar.items = [spacer, commitButton]
+        // textViewのキーボードにツールバーを設定
+        emailAddressTextField.inputAccessoryView = toolBar
         passwordTextField.inputAccessoryView = toolBar
         displayNameTextField.inputAccessoryView = toolBar
+    }
 
-        
-        
-    }
-    
     // ログインボタンをタップしたときに呼ばれるメソッド
-    @IBAction func handleLoginButton(_ sender: Any) {
-        if let address = mailAddressTextField.text, let password = passwordTextField.text {
-            
-            // アドレスとパスワード名のいずれかでも入力されていない時は何もしない
-            if address.isEmpty || password.isEmpty {
-                return
-            }
-            
-            // HUDで処理中を表示
-            SVProgressHUD.show()
-            
-            Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
-                if let error = error {
-                    print("DEBUG_PRINT: " + error.localizedDescription)
-                    SVProgressHUD.dismiss()
-                    self.showErrorForLogin(error)
-                    return
-                }
-                print("DEBUG_PRINT: ログインに成功しました。")
-                
-                // HUDを消す
-                SVProgressHUD.dismiss()
-                
-                // 画面を閉じてタブ画面に戻る
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func handleAccountButton(_ sender: Any) {
-        if let address = mailAddressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
+    @IBAction func createAccountButton(_ sender: Any) {
+        if let address = emailAddressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
             
             // アドレスとパスワードと表示名のいずれかでも入力されていない時は何もしない
             if address.isEmpty || password.isEmpty || displayName.isEmpty {
@@ -149,6 +117,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    @IBAction func moveToLoginViewControllerButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func dismissKeyboard(){

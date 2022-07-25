@@ -32,7 +32,7 @@
 		6DBF66F525A80F40003A96E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DBF66F325A80F40003A96E0 /* Main.storyboard */; };
 		6DBF66F725A80F45003A96E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBF66F625A80F45003A96E0 /* Assets.xcassets */; };
 		6DBF66FA25A80F45003A96E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DBF66F825A80F45003A96E0 /* LaunchScreen.storyboard */; };
-		6DBF670225A8123C003A96E0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF670125A8123C003A96E0 /* CreateAccountViewController.swift */; };
+		6DBF670225A8123C003A96E0 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF670125A8123C003A96E0 /* SignupViewController.swift */; };
 		6DBF670425A8124C003A96E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF670325A8124C003A96E0 /* HomeViewController.swift */; };
 		6DBF670A25A81285003A96E0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF670925A81285003A96E0 /* SettingViewController.swift */; };
 		6DBF670C25A822CA003A96E0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF670B25A822CA003A96E0 /* TabBarController.swift */; };
@@ -47,7 +47,9 @@
 		E20264AD288BEA01000A46C0 /* PostFormViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20264AC288BEA01000A46C0 /* PostFormViewController.storyboard */; };
 		E20264AF288BEAAD000A46C0 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20264AE288BEAAD000A46C0 /* PostFormViewController.swift */; };
 		E20264B3288C10F8000A46C0 /* PickLocationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20264B2288C10F8000A46C0 /* PickLocationViewController.storyboard */; };
-		E20264B9288C249C000A46C0 /* CreateAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20264B8288C249C000A46C0 /* CreateAccountViewController.storyboard */; };
+		E20264B9288C249C000A46C0 /* SignupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20264B8288C249C000A46C0 /* SignupViewController.storyboard */; };
+		E25C9BAD288EA63E0037D18E /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25C9BAC288EA63E0037D18E /* LoginViewController.storyboard */; };
+		E25C9BAF288EA6630037D18E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C9BAE288EA6630037D18E /* LoginViewController.swift */; };
 		E2BCCA942887ABF30082D584 /* PostViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BCCA932887ABF30082D584 /* PostViewController.storyboard */; };
 		E2BCCA962887AC290082D584 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BCCA952887AC290082D584 /* PostViewController.swift */; };
 		E2BCCA982887C8420082D584 /* CommentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2BCCA972887C8420082D584 /* CommentViewController.storyboard */; };
@@ -87,7 +89,7 @@
 		6DBF66F625A80F45003A96E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DBF66F925A80F45003A96E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DBF66FB25A80F45003A96E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DBF670125A8123C003A96E0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		6DBF670125A8123C003A96E0 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		6DBF670325A8124C003A96E0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6DBF670925A81285003A96E0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6DBF670B25A822CA003A96E0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -103,7 +105,9 @@
 		E20264AC288BEA01000A46C0 /* PostFormViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostFormViewController.storyboard; sourceTree = "<group>"; };
 		E20264AE288BEAAD000A46C0 /* PostFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		E20264B2288C10F8000A46C0 /* PickLocationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickLocationViewController.storyboard; sourceTree = "<group>"; };
-		E20264B8288C249C000A46C0 /* CreateAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccountViewController.storyboard; sourceTree = "<group>"; };
+		E20264B8288C249C000A46C0 /* SignupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignupViewController.storyboard; sourceTree = "<group>"; };
+		E25C9BAC288EA63E0037D18E /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		E25C9BAE288EA6630037D18E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2BCCA932887ABF30082D584 /* PostViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostViewController.storyboard; sourceTree = "<group>"; };
 		E2BCCA952887AC290082D584 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E2BCCA972887C8420082D584 /* CommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentViewController.storyboard; sourceTree = "<group>"; };
@@ -192,8 +196,10 @@
 			children = (
 				6DBF66ED25A80F40003A96E0 /* AppDelegate.swift */,
 				6DBF66EF25A80F40003A96E0 /* SceneDelegate.swift */,
-				6DBF670125A8123C003A96E0 /* CreateAccountViewController.swift */,
-				E20264B8288C249C000A46C0 /* CreateAccountViewController.storyboard */,
+				6DBF670125A8123C003A96E0 /* SignupViewController.swift */,
+				E20264B8288C249C000A46C0 /* SignupViewController.storyboard */,
+				E25C9BAE288EA6630037D18E /* LoginViewController.swift */,
+				E25C9BAC288EA63E0037D18E /* LoginViewController.storyboard */,
 				6DBF670B25A822CA003A96E0 /* TabBarController.swift */,
 				6DBF66F325A80F40003A96E0 /* Main.storyboard */,
 				E20264B4288C2110000A46C0 /* HomeViewController */,
@@ -335,7 +341,7 @@
 				6DBF66F525A80F40003A96E0 /* Main.storyboard in Resources */,
 				6DD1C2B025CD3FD000D9EB52 /* commentTableViewCell.xib in Resources */,
 				6D6DAF3025CA278C00C4CBF9 /* categoryTableViewCell.xib in Resources */,
-				E20264B9288C249C000A46C0 /* CreateAccountViewController.storyboard in Resources */,
+				E20264B9288C249C000A46C0 /* SignupViewController.storyboard in Resources */,
 				E2BCCA982887C8420082D584 /* CommentViewController.storyboard in Resources */,
 				E2BCCA942887ABF30082D584 /* PostViewController.storyboard in Resources */,
 				E2DE1889286B11A400189AAD /* HomeViewController.storyboard in Resources */,
@@ -344,6 +350,7 @@
 				E2DE1887286B023900189AAD /* SettingViewController.storyboard in Resources */,
 				E20264A9288BAE1F000A46C0 /* ImageSelectViewController.storyboard in Resources */,
 				6D812B6125C80A1500232984 /* roadsurfaceTableViewCell.xib in Resources */,
+				E25C9BAD288EA63E0037D18E /* LoginViewController.storyboard in Resources */,
 				6D6DAF2C25C91FEC00C4CBF9 /* rainyTableViewCell.xib in Resources */,
 				E20264B3288C10F8000A46C0 /* PickLocationViewController.storyboard in Resources */,
 			);
@@ -428,13 +435,14 @@
 				6D5EE54425D1331100F5527C /* MapViewController.swift in Sources */,
 				6DBF670C25A822CA003A96E0 /* TabBarController.swift in Sources */,
 				6D6DAF3325CA39AA00C4CBF9 /* descriptionTableViewCell.swift in Sources */,
+				E25C9BAF288EA6630037D18E /* LoginViewController.swift in Sources */,
 				6D812B5C25C7F45600232984 /* captionTableViewCell.swift in Sources */,
 				6DBF670425A8124C003A96E0 /* HomeViewController.swift in Sources */,
 				6DBF670A25A81285003A96E0 /* SettingViewController.swift in Sources */,
 				E20264AB288BB912000A46C0 /* ImageSelectViewController.swift in Sources */,
 				E20264AF288BEAAD000A46C0 /* PostFormViewController.swift in Sources */,
 				6DBD491825B1366E0011C3A9 /* PostData.swift in Sources */,
-				6DBF670225A8123C003A96E0 /* CreateAccountViewController.swift in Sources */,
+				6DBF670225A8123C003A96E0 /* SignupViewController.swift in Sources */,
 				6D812B6025C80A1500232984 /* roadsurfaceTableViewCell.swift in Sources */,
 				6DBF66EE25A80F40003A96E0 /* AppDelegate.swift in Sources */,
 				6DBF66F025A80F40003A96E0 /* SceneDelegate.swift in Sources */,
