@@ -74,17 +74,12 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     
     // CLImageEditorで加工が終わったときに呼ばれるメソッド
     func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
-//        // 投稿画面を開く
-//        let postContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostContentViewController") as! PostContentViewController
-//        postContentViewController.image = image!
-//        editor.present(postContentViewController, animated: true, completion: nil)
-        
-        //　遷移先のストーリーボードを取得して、インスタンス化して、navigationControllerで遷移
         let storyboard = UIStoryboard(name: "PostFormViewController", bundle: nil)
-        guard let postFormViewController = storyboard.instantiateInitialViewController() as? PostFormViewController
-        else { return }
+        let postFormViewController = storyboard.instantiateViewController(withIdentifier: "PostFormViewController") as! PostFormViewController
+        let nav = UINavigationController(rootViewController: postFormViewController)
+        nav.modalPresentationStyle = .fullScreen
         postFormViewController.image = image!
-        editor.present(postFormViewController, animated: true)
+        editor.present(nav,animated: true, completion: nil)
     }
     
     // CLImageEditorの編集がキャンセルされた時に呼ばれるメソッド

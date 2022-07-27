@@ -16,16 +16,12 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var image: UIImage!
     var addressString = ""
-    var category = ""
-    var roadsurface = ""
-    var kickout = ""
-    var rainy = ""
-    var detail = ""
+    var lat: CLLocationDegrees = 0.0
+    var log: CLLocationDegrees = 0.0
+    
     
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var textField: UITextField!
-    
     
     @IBOutlet weak var textSpotCategoryField: UITextField!
     var pickerView: UIPickerView = UIPickerView()
@@ -88,10 +84,12 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // 選択肢を自身に設定する
         pickerView.dataSource = self //（スポットの種類）
         pickerView.tag = 1
+        
         // MARK: PickerView, ToolBar 両方の高さを定義しておく
         let pickerViewHeight = CGFloat(300)
         let toolBarHeight = CGFloat(35)
         let pickerWithButtonViewHeight = pickerViewHeight + toolBarHeight
+        
         //　MARK: PickerView とToolBarの両方を表示するビューを生成する（スポットの種類）
         pickerWithButtonView = UIView(frame: CGRect(x: 0, y: view.frame.height / 2, width: view.frame.width, height: pickerWithButtonViewHeight))
         // MARK: ツールバーの生成（スポットの種類）
@@ -202,22 +200,13 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // 受け取った画像をImageViewに設定する
         imageView.image = image
         textField.text = addressString
-        textSpotCategoryField.text = category
-        textRoadSurfaceField.text = roadsurface
-        textKickoutLevelField.text = kickout
-        textRainySpotField.text = rainy
-        textDetailView.text = detail
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         textField.text = addressString
-        textSpotCategoryField.text = category
-        textRoadSurfaceField.text = roadsurface
-        textKickoutLevelField.text = kickout
-        textRainySpotField.text = rainy
-        textDetailView.text = detail
         
     }
     
@@ -227,16 +216,10 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let storyboard = UIStoryboard(name: "PickLocationViewController", bundle: nil)
         guard let pickLocationViewController = storyboard.instantiateInitialViewController() as? PickLocationViewController
         else { return }
-        pickLocationViewController.image = image
         pickLocationViewController.addressString = addressString
-        pickLocationViewController.category = textSpotCategoryField.text ?? ""
-        pickLocationViewController.roadsurface = textRoadSurfaceField.text ?? ""
-        pickLocationViewController.kickout = textKickoutLevelField.text ?? ""
-        pickLocationViewController.rainy = textRainySpotField.text ?? ""
-        pickLocationViewController.detail = textDetailView.text ?? ""
-        present(pickLocationViewController, animated: true)
-        
-        
+        pickLocationViewController.lat = lat
+        pickLocationViewController.log = log
+        navigationController?.pushViewController(pickLocationViewController, animated: true)
     }
     
     
@@ -248,56 +231,48 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 return
             }
         }
-        
-        CLGeocoder().geocodeAddressString(addressString) { placemarks, error in
-            DispatchQueue.main.async {
-                
-                guard let lat = placemarks?.first?.location?.coordinate.latitude else {return}
-                guard let lng = placemarks?.first?.location?.coordinate.longitude else {return}
-                
-                // 画像をJPEG形式に変換する
-                let imageData = self.image.jpegData(compressionQuality: 0.5)
-                // 画像と投稿データの保存場所を定義する
-                let postRef = Firestore.firestore().collection(Const.PostPath).document()
-                let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postRef.documentID + ".jpg")
-                // HUDで投稿処理中の表示を開始
-                SVProgressHUD.show()
-                // Storageに画像をアップロードする
-                let metadata = StorageMetadata()
-                metadata.contentType = "image/jpeg"
-                imageRef.putData(imageData!, metadata: metadata) { (metadata, error) in
-                    if error != nil {
-                        // 画像のアップロード失敗
-                        print(error!)
-                        SVProgressHUD.showError(withStatus: "画像のアップロードが失敗しました")
-                        // 投稿処理をキャンセルし、先頭画面に戻る
-                        UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
-                        return
-                    }
+
+        DispatchQueue.main.async {
+      
+            // 画像をJPEG形式に変換する
+            let imageData = self.image.jpegData(compressionQuality: 0.5)
+            // 画像と投稿データの保存場所を定義する
+            let postRef = Firestore.firestore().collection(Const.PostPath).document()
+            let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postRef.documentID + ".jpg")
+            // HUDで投稿処理中の表示を開始
+            SVProgressHUD.show()
+            // Storageに画像をアップロードする
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            imageRef.putData(imageData!, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    // 画像のアップロード失敗
+                    print(error!)
+                    SVProgressHUD.showError(withStatus: "画像のアップロードが失敗しました")
+                    // 投稿処理をキャンセルし、先頭画面に戻る
+                    UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
+                    return
                 }
-                // FireStoreに投稿データを保存する
-                let name = Auth.auth().currentUser?.displayName
-                let postDic = [
-                    "name": name!,
-                    "caption": self.textField.text!,
-                    "category": self.textSpotCategoryField.text!,
-                    "roadsurface": self.textRoadSurfaceField.text!,
-                    "kickout": self.textKickoutLevelField.text!,
-                    "rainy": self.textRainySpotField.text!,
-                    "detail": self.textDetailView.text!,
-                    "date": FieldValue.serverTimestamp(),
-                    "latitude": lat,
-                    "longitude": lng,
-                ] as [String : Any]
-                postRef.setData(postDic)
-                // HUDで投稿完了を表示する
-                SVProgressHUD.showSuccess(withStatus: "投稿しました")
-                // 投稿処理が完了したので先頭画面に戻る
-        UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
-                
-                
             }
-            
+            // FireStoreに投稿データを保存する
+            let name = Auth.auth().currentUser?.displayName
+            let postDic = [
+                "name": name!,
+                "caption": self.textField.text!,
+                "category": self.textSpotCategoryField.text!,
+                "roadsurface": self.textRoadSurfaceField.text!,
+                "kickout": self.textKickoutLevelField.text!,
+                "rainy": self.textRainySpotField.text!,
+                "detail": self.textDetailView.text!,
+                "date": FieldValue.serverTimestamp(),
+                "latitude": self.lat,
+                "longitude": self.log,
+            ] as [String : Any]
+            postRef.setData(postDic)
+            // HUDで投稿完了を表示する
+            SVProgressHUD.showSuccess(withStatus: "投稿しました")
+            // 投稿処理が完了したので先頭画面に戻る
+            UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         }
     }
     

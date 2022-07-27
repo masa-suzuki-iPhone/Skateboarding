@@ -52,13 +52,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="既にアカウントをお持ちの方">
-                                            <attributes>
-                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
+                                        <fragment content="既にアカウントをお持ちの方 ">
                                             <attributes>
                                                 <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <font key="NSFont" metaFont="system"/>
@@ -67,7 +61,7 @@
                                         <fragment content="ログイン">
                                             <attributes>
                                                 <color key="NSColor" red="0.010837524186620297" green="0.15946403408685064" blue="0.82361595076743999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                                <font key="NSFont" metaFont="system"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>

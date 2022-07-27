@@ -13,16 +13,9 @@ import CoreLocation
 class PickLocationViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     var addressString = ""
+    var lat: CLLocationDegrees = 0.0
+    var log: CLLocationDegrees = 0.0
     var pin: MKPointAnnotation = MKPointAnnotation()
-    
-    var image: UIImage!
-    var category = ""
-    var roadsurface = ""
-    var kickout = ""
-    var rainy = ""
-    var detail = ""
-    
-    
     var locationManager: CLLocationManager!
     
     @IBOutlet var longPress: UILongPressGestureRecognizer!
@@ -52,7 +45,6 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
         } else {
             settingButton.isEnabled = true
             settingButton.setTitleColor(UIColor.systemBlue, for: .normal )
-            
         }
     }
     
@@ -71,13 +63,11 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
             //タップを終了した時
             //タップした位置を指定して、MKMapView上の緯度、経度を取得する
             //緯度経度から住所に変換する
-            
-            
             let tapPoint = sender.location(in: view)
             //タップした位置(CGPoint)を指定してMKMapView上の緯度経度を取得
             let center = mapView.convert(tapPoint, toCoordinateFrom: mapView)
-            let lat = center.latitude
-            let log = center.longitude
+            lat = center.latitude
+            log = center.longitude
             convert(lat: lat, log: log)
             
             // タップした位置情報に位置にピンを追加
@@ -112,8 +102,6 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
                 }
             }
         }
-        
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -148,37 +136,23 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
         let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
         // ここで照準を合わせている
         mapView.region = region
-        
     }
     
     
     @IBAction func settingButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-       
-        let postFormViewController = self.presentingViewController as! PostFormViewController
-        postFormViewController.image = image
-        postFormViewController.addressString = self.addressString
-        postFormViewController.category = category
-        postFormViewController.roadsurface = roadsurface
-        postFormViewController.kickout = kickout
-        postFormViewController.rainy = rainy
-        postFormViewController.detail = detail
-     
+        let nav = self.navigationController
+        // 一つ前のViewControllerを取得する
+        let postFormViewController = nav?.viewControllers[(nav?.viewControllers.count)!-2] as! PostFormViewController
+        // 値を渡す
+        postFormViewController.addressString = addressString
+        postFormViewController.lat = lat
+        postFormViewController.log = log
+        self.navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func cancelButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-       
-        let postFormViewController = self.presentingViewController as! PostFormViewController
-        postFormViewController.image = image
-        postFormViewController.addressString = ""
-        postFormViewController.category = category
-        postFormViewController.roadsurface = roadsurface
-        postFormViewController.kickout = kickout
-        postFormViewController.rainy = rainy
-        postFormViewController.detail = detail
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     
